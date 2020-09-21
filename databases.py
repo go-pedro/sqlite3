@@ -27,10 +27,11 @@ c=conn.cursor()
 # c.executemany("INSERT INTO customers VALUES (?,?,?)", many_customers)
 # print('command executed successully...')
 
-c.execute("SELECT * FROM customers")
+c.execute("SELECT rowid,* FROM customers WHERE last_name LIKE 'B%'")
 items=c.fetchall()
+
 for item in items:
-	print(item[0])
+	print(item)
 
 #commit our connection 
 conn.commit()
